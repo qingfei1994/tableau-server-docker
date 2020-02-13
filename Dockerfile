@@ -7,7 +7,7 @@ FROM centos/systemd
 MAINTAINER "Tamas Foldi" <tfoldi@starschema.net>
 
 # this is the version what we're building
-ENV TABLEAU_VERSION="2019.1.1" \
+ENV TABLEAU_VERSION="2019.3.4" \
     LANG=en_US.UTF-8
 
 # make systemd dbus visible 
@@ -37,4 +37,10 @@ RUN mkdir -p /etc/systemd/system/ && \
 # Expose TSM and Gateway ports
 EXPOSE 80 8850
 
+# INSTALL PLUGIN
+
+RUN yum install -y  "https://download.dremio.com/odbc-driver/1.4.2.1003/dremio-odbc-1.4.2.1003-1.x86_64.rpm" &&
+
 CMD /sbin/init
+
+

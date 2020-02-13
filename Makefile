@@ -6,7 +6,7 @@ build:
 	docker build -t tfoldi/tableau-server:release .
 
 run: build
-	docker run -ti --privileged -v /sys/fs/cgroup:/sys/fs/cgroup -v /run -p 80 tfoldi/tableau-server:release
+	docker run -ti --privileged -v /sys/fs/cgroup:/sys/fs/cgroup -v /run -p 8080:80 tfoldi/tableau-server:release
 
 
 clean:
